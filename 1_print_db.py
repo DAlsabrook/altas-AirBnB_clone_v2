@@ -6,6 +6,7 @@ from models.state import State
 from models.city import City
 from models.place import Place
 from models.user import User
+from models.amenity import Amenity
 
 def print_tables():
     session = DBStorage()
@@ -18,6 +19,7 @@ def print_tables():
         cities = connection.execute(select(City)).fetchall()
         places = connection.execute(select(Place)).fetchall()
         users = connection.execute(select(User)).fetchall()
+        amenities = connection.execute(select(Amenity)).fetchall()
 
     print("\nStates table:")
     for state in states:
@@ -30,6 +32,10 @@ def print_tables():
     print("\n\nPlaces table:")
     for place in places:
         print(f"{place.name}", end="  | ")
+
+    print("\n\nAmenities table:")
+    for amenity in amenities:
+        print(f"{amenity.name}", end="  | ")
 
     print("\n\nUsers table:")
     for user in users:
