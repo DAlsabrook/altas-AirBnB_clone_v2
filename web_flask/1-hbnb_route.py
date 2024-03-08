@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+This is a module to learn how to use flask in creating a webpage
+"""
 from flask import Flask
 
 app = Flask(__name__)
@@ -10,6 +13,7 @@ def home():
 @app.route("/hbnb", strict_slashes=False)
 def hbnb():
     return "HBNB"
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)

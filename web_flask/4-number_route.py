@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+This is a module to learn how to use flask in creating a webpage
+"""
 from flask import Flask, abort
 
 app = Flask(__name__)
@@ -28,6 +31,7 @@ def number(n):
         return f"{int(n)} is a number"
     except ValueError:
         abort(404)
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)

@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+This is a module to learn how to use flask in creating a webpage
+"""
 from flask import Flask, abort, render_template
 
 app = Flask(__name__)
@@ -36,6 +39,7 @@ def number_html(n):
         return render_template('5-number.html', content=num)
     except ValueError:
         abort(404)
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
