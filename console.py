@@ -22,7 +22,7 @@ class HBNBCommand(cmd.Cmd):
     # working for db - destroy(brought from partner proj)
     # working for db - show
     # working for db - all
-    # NOT working for db - update
+    # working for db - update
 
     # Fixed EOF, quit, and emptyline
     prompt = '(hbnb) '
@@ -221,7 +221,7 @@ class HBNBCommand(cmd.Cmd):
         print(", ".join(obj_list), end="")
         print("]")
 
-    def do_update(self, arg):   #### Not currently working i dont think
+    def do_update(self, arg):
         """Update an instance based on the class name, id, attribute & value
             Ex: update State id name value
         """

@@ -39,6 +39,11 @@ class DBStorage:
         if HBNB_ENV == "test":
             Base.metadata.drop_all(self.__engine)
 
+    # Used in personal test files only (m2m.py, printdb.py)
+    def get_engine(self):
+        """Returns the engine."""
+        return self.__engine
+
     def all(self, cls=None):
         """query on the current database session"""
         new_dict = {}
