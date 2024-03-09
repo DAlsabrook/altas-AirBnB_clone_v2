@@ -14,4 +14,6 @@ class State(BaseModel, Base):
         cities = relationship("City", backref="state")
     else:
         name = ""
-        cites = []
+        cities = []
+
+    ### Create a getter method similar to getter in place.py for amenities

@@ -11,7 +11,15 @@ from models.amenity import Amenity
 ### This file will create a state, city, user, and multiple places that should
 ### be tied to multiple amenities (many 2 many relationship)
 
-# Works for db but not fs
+## Works for db but error for fs (still creates json and adds objs to it)
+# Traceback (most recent call last):
+#   File "/com.docker.devenvironments.code/./create_data.py", line 69, in <module>
+#     create_tables()
+#   File "/com.docker.devenvironments.code/./create_data.py", line 53, in create_tables
+#     place_0.amenities.append(wifi)
+#   File "/com.docker.devenvironments.code/models/place.py", line 74, in amenities
+#     if amenity.place_id == self.id:
+# AttributeError: 'Amenity' object has no attribute 'place_id'
 def create_tables():
     # creation of a State
     california = State(name="California")
