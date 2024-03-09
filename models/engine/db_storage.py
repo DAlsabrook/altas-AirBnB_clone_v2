@@ -44,6 +44,10 @@ class DBStorage:
         """Returns the engine."""
         return self.__engine
 
+    def get_session(self):
+        """Returns the engine."""
+        return self.__session
+
     def all(self, cls=None):
         """query on the current database session"""
         new_dict = {}
