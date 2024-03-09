@@ -61,6 +61,7 @@
 
 from models.engine.db_storage import DBStorage
 from models.place import Place
+from models.state import State
 
 def print_tables():
     session = DBStorage()
@@ -68,6 +69,12 @@ def print_tables():
 
     # Assuming DBStorage session provides access to the ORM session
     orm_session = session.get_session()
+
+    # fetching all State instances
+    states = orm_session.query(State).all()
+    print("States:")
+    for state in states:
+        print(state.name, end=" | ")
 
     # Fetching all Place instances
     places = orm_session.query(Place).all()

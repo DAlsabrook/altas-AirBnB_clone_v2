@@ -9,7 +9,7 @@ from models.place import Place
 from models.review import Review
 from models.state import State
 from models.user import User
-from models.__init__ import storage
+from models.__init__ import storage, storage_t
 import shlex
 
 classes = {"Amenity": Amenity, "BaseModel": BaseModel, "City": City,
@@ -78,22 +78,23 @@ class HBNBCommand(cmd.Cmd):
                         value = float(value)
                     d.update({attr: value})
             i += 1
-        required_attrs = []
-        # get non nullable attributes that have no default
-        for column in classes[model].__table__.columns:
-            # if attr is not nullable and has no default set
-            if not column.nullable and\
-                column.default is None and\
-                    not column.primary_key:
-                required_attrs.append(column.name)
-        count = 0
-        # Check if new object has all required non nullable attributes
-        for attr in d:
-            if attr in required_attrs:
-                count += 1
-        if count < len(required_attrs):
-            print(f"Error: must fill all required attrs {required_attrs}")
-            return
+        if storage_t == "db":
+            required_attrs = []
+            # get non nullable attributes that have no default
+            for column in classes[model].__table__.columns:
+                # if attr is not nullable and has no default set
+                if not column.nullable and\
+                    column.default is None and\
+                        not column.primary_key:
+                    required_attrs.append(column.name)
+            count = 0
+            # Check if new object has all required non nullable attributes
+            for attr in d:
+                if attr in required_attrs:
+                    count += 1
+            if count < len(required_attrs):
+                print(f"Error: must fill all required attrs {required_attrs}")
+                return
 
         new_instance = classes[model](**d)
         print(new_instance.id)
