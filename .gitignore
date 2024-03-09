@@ -160,4 +160,5 @@ cython_debug/
 #.idea/
 *.txt
 settings.json
+file.json
 *.yaml
