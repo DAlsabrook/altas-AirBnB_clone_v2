@@ -9,11 +9,6 @@ from models.state import State
 app = Flask(__name__)
 
 
-@app.teardown_appcontext
-def close(error):
-    storage.close()
-
-
 @app.route("/states_list", strict_slashes=False)
 def states_list():
     try:
@@ -33,6 +28,11 @@ def cities_by_states_list():
         return render_template('8-cities_by_states.html', states=states)
     except ValueError:
         abort(404)
+
+
+@app.teardown_appcontext
+def close(error):
+    storage.close()
 
 
 if __name__ == "__main__":
