@@ -18,9 +18,9 @@ def close(error):
 def states_list():
     try:
         states_dict = storage.all(State)
-        # sorted_dict = {k: v for k, v in sorted(states_dict.items(),
-        #                                        key=lambda item: item[1].name)}
-        return render_template('7-states_list.html', states_list=states_dict)
+        sorted_dict = {k: v for k, v in sorted(states_dict.items(),
+                                               key=lambda item: item[1].name)}
+        return render_template('7-states_list.html', states_list=sorted_dict)
     except ValueError:
         abort(404)
 
