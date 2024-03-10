@@ -12,11 +12,8 @@ app = Flask(__name__)
 @app.route("/states_list", strict_slashes=False)
 def states_list():
     try:
-        states_dict = storage.all(State)
-        # Sort the states_dict by name A-Z
-        sorted_dict = {k: v for k, v in sorted(states_dict.items(),
-                                               key=lambda item: item[1].name)}
-        return render_template('7-states_list.html', states_list=sorted_dict)
+        states = storage.all(State)
+        return render_template('7-states_list.html', states=states)
     except ValueError:
         abort(404)
 
