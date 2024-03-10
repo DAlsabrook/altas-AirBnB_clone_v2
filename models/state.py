@@ -24,4 +24,4 @@ class State(BaseModel, Base):
             from models import storage
             from models.city import City
             return [city for city in storage.all(City).values()
-                    if city.id in self.cities]
+                    if city.state_id == self.id]
