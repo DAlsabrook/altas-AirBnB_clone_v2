@@ -11,7 +11,7 @@
         <!-- {% for key, state in states_list.items() %}
         <li>{{state.id}}: <b>{{state.name}}</b></li>
         {% endfor %} -->
-        {% for state in state_list.values() | sort(attribute="name") %}
+        {% for state in states_list.values() | sort(attribute="name") %}
         <LI>{{ state.id }}: <B>{{ state.name }}</B></LI>
         {% endfor %}
     </UL>
