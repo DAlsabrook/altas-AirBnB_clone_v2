@@ -60,9 +60,9 @@ class FileStorage:
             for key in jo:
                 self.__objects[key] = classes[jo[key]["__class__"]](**jo[key])
         except FileNotFoundError:
-            print(f"No file found at {self.__file_path}, starting fresh.")
+            pass
         except KeyError as e:
-            print(f"Missing key in JSON data: {e}.")
+            pass
 
     def delete(self, obj=None):
         """delete obj from __objects if its inside"""
