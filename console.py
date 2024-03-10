@@ -100,7 +100,7 @@ class HBNBCommand(cmd.Cmd):
         print(new_instance.id)
         new_instance.save()
 
-    #### do_create method ryan gave us
+    # do_create method ryan gave us
 
     # def _key_value_parser(self, args):
     #     """creates a dictionary from a list of strings"""
@@ -185,7 +185,7 @@ class HBNBCommand(cmd.Cmd):
         except KeyError:
             print("** no instance found **")
 
-    ### do_destroy Ryan gave us
+    # do_destroy Ryan gave us
 
     # def do_destroy(self, arg):
     #     """Deletes an instance based on the class and id"""
