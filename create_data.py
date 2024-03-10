@@ -70,6 +70,9 @@ def create_tables():
     place_3.amenities.append(wifi)
     place_3.amenities.append(tv)
     place_2.save()
+    place_3.save()
+    place_0.save()
+    place_1.save()
     storage.save()
 
 
