@@ -63,8 +63,16 @@
 }
 
 .popover h2 {
-    font-size: 16px;
+    font-size: 20px;
     margin: 0 0 5px;
+}
+
+.state_list {
+    margin-top: 15px;
+}
+
+.state_list li {
+    margin-left: -20px;
 }
 
 .state_list li,
