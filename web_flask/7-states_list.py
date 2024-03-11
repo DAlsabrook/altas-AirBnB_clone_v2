@@ -11,11 +11,8 @@ app = Flask(__name__)
 
 @app.route("/states_list", strict_slashes=False)
 def states_list():
-    try:
-        states = storage.all(State)
-        return render_template('7-states_list.html', states=states)
-    except ValueError:
-        abort(404)
+    states = storage.all(State)
+    return render_template('7-states_list.html', states=states)
 
 
 @app.teardown_appcontext
